@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+:root {
+  --red-dark-background: rgba(179, 20, 10, 1);
+  --light-red-color: rgba(227, 30, 36, 1);
+  --white-color: #ffffff;
+  --white-rgba: rgba(255, 255, 255, 1);
+  --grey-color: #a99b95;
+  --black-color: rgba(0, 0, 0, 1);
+  --black-color2: rgba(10, 9, 8, 1);
+  --bleu-color: rgba(25, 38, 54, 1);
+}
+
+.join-root {
+  width: 100%;
+  min-height: 70px; /* Use min-height so content can expand on mobile */
+  background-color: var(--black-color);
+  color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  gap: 1.5rem;
+  border-bottom: 1.2px solid var(--red-dark-background);
+}
+
+.join-root h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.join-root h1 span {
+  color: var(--red-dark-background);
+}
+
+.join-content-root {
+  width: 100%;
+  max-width: 1200px; /* <-- Add this */
+  display: flex;
+  flex-wrap: wrap; /* <-- Add this */
+  align-items: stretch;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.join-content {
+  flex: 0 1 280px; /* <-- Change 0 to 1 */
+  max-width: 350px; /* <-- Add this */
+  min-width: 250px; /* <-- Add this */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 24px 24px 10px;
+  border: 1px solid var(--white-color);
+  border-radius: 2rem;
+}
+
+.content-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.service-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Forces the card to stretch to full height */
+  justify-content: space-between; /* Pushes the button to the bottom */
+  width: 100%;
+}
+
+.service-content button {
+  margin-top: 2rem;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  border-radius: 1rem;
+  align-self: center;
+  width: 80%;
+}
+
+.content-text > img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.join-content:nth-child(2) {
+  background-color: var(--red-dark-background);
+}
+
+.join-content:nth-child(3) {
+  background-color: var(--black-color2);
+}
+
+.join-content:nth-child(1) .service-content button {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border: 1px solid var(--red-dark-background);
+}
+
+.join-content:nth-child(2) .service-content button {
+  color: var(--red-dark-background);
+  background-color: var(--white-color);
+}
+
+.join-content:nth-child(3) .service-content button {
+  background-color: var(--red-dark-background);
+  color: var(--white-color);
+}
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 900px) {
+  .join-root h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .join-root {
+    padding: 1.8rem 0.8rem;
+  }
+
+  .join-root h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .join-content {
+    max-width: 100%;
+  }
+}

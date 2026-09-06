@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+:root {
+  --red-dark-background: rgba(179, 20, 10, 1);
+  --light-red-color: rgba(227, 30, 36, 1);
+  --white-color: #ffffff;
+  --white-rgba: rgba(255, 255, 255, 1);
+  --grey-color: #a99b95;
+  --black-color: rgba(0, 0, 0, 1);
+  --bleu-color: rgba(25, 38, 54, 1);
+}
+
+.about-root {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  background-color: var(--white-color);
+  overflow: hidden;
+}
+
+.about-right {
+  width: 50%;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns h2, img, and h3 to the left */
+  gap: 1rem;
+}
+
+.about-right h3 {
+  color: var(--red-dark-background);
+}
+
+.about-right h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--red-dark-background);
+  margin: 0;
+}
+
+.about-right h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--red-dark-background);
+  margin-top: 4px;
+}
+
+.about-right p {
+  font-size: 1rem;
+  color: var(--blue-color);
+  max-width: 42ch;
+}
+
+.about-right h3 {
+  font-size: 1rem;
+  color: var(--red-dark-background);
+}
+
+/* Force image to start at the left boundary */
+
+/* Optional header wrapper for tight spacing control */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns h2, img, and h3 to the left */
+  gap: 1rem;
+}
+
+.about-right img {
+  display: block;
+  max-width: 180px;
+  height: auto;
+  margin-left: -30px; /* Adjust this value (e.g., -5px to -12px) until visually flush */
+}
+
+.about-gitora-icons {
+  padding: 2rem 2rem;
+
+  display: flex;
+  gap: 3rem;
+}
+.about-gitora-icons img {
+  display: block;
+  max-width: 40px;
+  height: auto;
+}
+
+/* styling left div  */
+
+.about-left {
+  width: 50%;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-left h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--red-dark-background);
+  margin: 0;
+}
+
+.about-left h2::after {
+  content: "";
+  display: block;
+  width: 190px;
+  height: 3px;
+  background-color: var(--blue-color);
+  margin-top: 4px;
+}
+.gitora_content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.choose-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.choose-content .arrow-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background-color: var(--red-dark-background);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+.choose-content p {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Redesign */
+.choose-content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.choose-content:hover {
+  transform: translateY(-4px);
+  border-color: rgba(227, 30, 36, 0.5);
+  box-shadow: 0 10px 30px rgba(227, 30, 36, 0.15);
+}
+
+/* Arrow Button Styling */
+.arrow-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: linear-gradient(135deg, #e31e24 0%, #b3140a 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(227, 30, 36, 0.3);
+}
+
+/* Footer Icon Wrappers */
+.about-gitora-icons img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.about-gitora-icons img:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .about-root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-right,
+  .about-left {
+    width: 100%;
+    padding: 2rem 1.5rem; /* Reduced padding for mobile screens */
+  }
+  .about-right p {
+    max-width: 100%; /* Allows text to use the full column width on phones */
+  }
+
+  .about-gitora-icons {
+    padding: 1rem 2rem;
+    gap: 2rem; /* Reduces spacing between footer app icons */
+  }
+
+  .gitora_content {
+    gap: 1.2rem; /* Brings feature cards closer together vertically */
+  }
+}

@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+:root {
+  --red-dark-background: rgba(179, 20, 10, 1);
+  --light-red-color: rgba(227, 30, 36, 1);
+  --black-dark-color: rgba(1, 1, 1, 1);
+  --white-color: #ffffff;
+  --grey-color: #a99b95;
+}
+/* 
+/* Base Layout Adjustments */
+.hero-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--black-dark-color);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.root_container {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.text-div h1 {
+  color: #ffffff;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.text-div span {
+  color: #e50914;
+}
+
+.athlete_container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 200px;
+  background-color: rgba(179, 20, 10, 0.3); /* Base glow color */
+  border-radius: 50%; /* Perfect circle */
+  filter: blur(80px); /* Softens edges into a glow */
+  z-index: 0; /* Keeps it behind cards & image */
+  pointer-events: none;
+}
+
+/* Feature Card Styling */
+.feature-card {
+  background-color: var(--red-dark-background);
+  color: #ffffff;
+  padding: 0.6rem 0.5rem; /* Reduced from 1rem */
+  border-radius: 16px; /* Slightly smaller rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.3rem; /* Reduced gap between icon and text */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.feature-icon {
+  font-size: 1.4rem; /* Reduced icon size from 1.8rem */
+  display: flex;
+}
+
+.feature-card p {
+  font-size: 0.75rem; /* Reduced text size from 0.85rem */
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Start Button Styling */
+#start-now {
+  position: absolute;
+  background-color: #be0c15;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+#start-now:hover {
+  background-color: #e50914;
+  transform: scale(1.05);
+}
+
+/* Desktop Fan Layout (Screens 768px and up) */
+@media (min-width: 768px) {
+  .athlete_container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .athlete_container > img {
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    position: relative;
+  }
+
+  .feature-card {
+    position: absolute;
+    width: 100px; /* Reduced from 130px */
+    height: 110px; /* Reduced from 140px */
+    z-index: 1;
+  }
+
+  /* Absolute placements & angled rotations matching the image */
+  .feature-card:nth-of-type(1) {
+    top: 5%;
+    left: 28%;
+    transform: rotate(-25deg);
+    background-color: var(--light-red-color);
+  }
+
+  .feature-card:nth-of-type(2) {
+    top: 5%;
+    right: 28%;
+    transform: rotate(25deg);
+  }
+
+  .feature-card:nth-of-type(3) {
+    bottom: 25%;
+    left: 20%;
+    transform: rotate(-35deg);
+  }
+
+  .feature-card:nth-of-type(4) {
+    bottom: 25%;
+    right: 19%;
+    transform: rotate(35deg);
+    background-color: var(--light-red-color);
+  }
+}
+
+/* Mobile & Tablet Stacking Layout (Screens under 768px) */
+@media (max-width: 767px) {
+  .athlete_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .athlete_container > img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    order: 3; /* Places image below the first 2 cards */
+  }
+
+  .feature-card {
+    position: static;
+    transform: none !important;
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .feature-card:nth-child(1) {
+    order: 1;
+  }
+  .feature-card:nth-child(2) {
+    order: 2;
+  }
+  .feature-card:nth-child(3) {
+    order: 4;
+  }
+  .feature-card:nth-child(3) {
+    order: 5;
+  }
+}
+
+@media (max-width: 767px) {
+  #start-now {
+    position: static;
+    margin: 1.5rem auto 0; /* Centers the button below the content */
+  }
+}
